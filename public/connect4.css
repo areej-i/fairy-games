@@ -1,0 +1,91 @@
+
+input[type=text]{
+    height:40px; 
+    padding: 3px 20px; 
+    font-family: 'Poppins', sans-serif;
+    width:300px; 
+    border-radius: 10rem;
+    border-color: transparent;
+    font-size:80%;
+}
+.button {
+    display: inline-block;
+    border-radius: 10rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: lowercase;
+    letter-spacing: 0.14rem; 
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-color: transparent;
+    border-width: 1px;
+}
+.button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(139, 97, 179);
+    border-radius: 10rem;
+    border-color: transparent;
+    z-index: -2;
+}
+.button:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-color: transparent;
+    height: 100%;
+    background-color: #d66578;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+.button:hover {
+    color: #fff;
+}
+.button:hover:before {
+    width: 100%;
+}
+
+h3
+{
+    text-decoration: underline;
+}
+text
+{
+    height:40px;
+    width:300px;
+    font-size: 15px;
+}
+input#gamesInput {
+	padding: 12px 20px;
+	top: 47%;
+	width: 98%;
+    margin-bottom: 3px;
+	background-color:rgb(169, 142, 223);
+	color:rgba(255, 255, 255, 0.787);
+	border-radius: 2rem;
+	border-color:transparent;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 17px;
+}
+::placeholder { 
+	color:rgb(255, 255, 255);
+}
+li {
+	margin-top: -1px;
+    background-color: rgba(231, 137, 121, 0.959);
+    padding: 12px;
+    text-decoration: none;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.863);
+    display: block;
+    position: relative;
+}
