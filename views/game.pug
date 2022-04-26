@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title Fairy Gaming 
+		link(rel="stylesheet" href="./connect4.css")
+		script(src="/connect4.js")
+		script(src="/help.js")
+		link(rel="icon" type="image/png" href="/pixie4.png")
+	body(style="background: rgb(206, 184, 250);" onload="displayGames()")
+	style.
+		.button
+		{
+			color:black;
+		}
+		body
+		{
+			font-size: 20px;
+			background: #90c0d6;
+		}
+	form(action='/games' method="POST")
+		body(onload="displayGames()")
+			h1 Connect4
+			label
+			form(action='../createGame')
+				p type:
+				input#private(type='radio' value='private')
+				label(for='private') private
+				br
+				input#public(type='radio' value='public')
+				label(for='public') public
+				br
+				input#friends(type='radio' value='other')
+				label(for='other') friends only
+				br
+				br
+				input(type='submit' class="button" value='create new game')
+			br
+			label search games
+				input#gamesInput(type='text' onkeyup="searchGames()" placeholder='Search games..')
+				ul#gamesList(style="width: 300px;")
+				//- ul#requestList
+				//- 	li private
+				//- 	li public
+				//- 	li friends only
+
+
+    
+

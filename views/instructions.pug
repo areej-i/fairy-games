@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title Fairy Gaming
+    link(rel="icon" type="image/png" href="/pixie4.png")
+  link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet")
+  link(rel="stylesheet" href="./connect4.css")
+  style.
+    button
+    {
+    background-color: rgb(161, 120, 214);
+    font-size: 1.05rem;
+    margin:5px;
+    font-weight: 600;
+    padding: 4px 25px;
+    }
+    body
+    {
+    font-size: 22px;
+    background: rgb(184, 158, 255);
+    }
+  body
+    h1 Instructions
+    p
+      | Before starting, players decide randomly which of them will start first and make one move at a time.
+      br
+      |         Moves entails in placing new pieces on the board, the pieces will slide downwards from the top, 
+      br
+      |         falling down to the last row or piling up on the last piece introduced in the same column. 
+      br
+      |         The winner is the first player who gets a vertical, horizontal or diagonal line made with four own pieces
+      br
+      |         and no gaps between them. But it is also possible for there to be a draw.
+    br
+    button#login(class="button" style="cursor:pointer;" onclick="location.href = 'login';") login
+    button#register(class="button" style="cursor:pointer;" onclick="location.href = 'register';") sign up
