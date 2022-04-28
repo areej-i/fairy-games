@@ -8,111 +8,6 @@ html(lang="en")
 		link(rel="icon" type="image/png" href="/pixie4.png")
 	link(rel="stylesheet" href="/profile.css")
 	body(style='background: linear-gradient(180deg, rgb(88 69 190) 4%, rgb(238 118 118 / 72%) 94%); font-family: "OpenSansCondensed-Light", sans-serif' onload="displayUsers(); displayFriends(); displayRequests(); displayActiveGames()")
-	style.
-		h1{
-		color: rgb(255 184 255);
-		font-size: 36px;
-		margin-top: -1;
-		}
-		.modal {
-		display: none;
-		position: fixed;
-		z-index: 1;
-		padding-top: 170px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: rgb(0,0,0);
-		background-color: rgba(0,0,0,0.4);
-		}
-
-		.modal-content {
-		background-color: rgb(173 145 213);
-		
-		margin: auto;
-		padding: 20px;
-		border: 1px solid #888;
-		width: 40%;
-		}
-
-		.close {
-		color: #ffffff;
-		float: right;
-		font-size: 28px;
-		font-weight: bold;
-		}
-
-		.close:hover,
-		.close:focus {
-		color: #000;
-		text-decoration: none;
-		cursor: pointer;
-		}
-		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-		color: rgb(255 255 255 / 64%);
-		opacity: 1; /* Firefox */
-		}
-		li a:hover {
-		color: rgb(192, 126, 222);
-		}
-		#lab label:hover{
-		background-color: pink;
-		}
-		a:-webkit-any-link {
-		color: white;
-		cursor: pointer;
-		}
-		.flip-card {
-		width: 368px;
-		height: 70px;
-		perspective: 1000px;
-		margin-top: 38;
-		position: fixed;
-		left: 71%;
-		}
-
-		.flip-card-inner {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		text-align: center;
-		transition: transform 0.9s;
-		transform-style: preserve-3d;
-		
-		}
-
-		.flip-card:hover .flip-card-inner {
-		transform: rotateX(180deg);
-		}
-
-		.flip-card-front, .flip-card-back {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-		}
-
-		.flip-card-front {
-		background-color: #bbb;
-		color: white;
-		border-radius: 1rem; 
-		background-color: rgb(149 145 234 / 68%);
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		text-align: center;
-		}
-
-		.flip-card-back {
-		background-color: rgb(221 157 221);
-		color: white;
-		transform: rotateX(180deg);
-		border-radius: 1rem; 
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		text-align: center;
-		}
-
 	#main
 		span(style="font-size:25px; cursor:pointer; display:inline-block" onclick="openNav()") ☰ 
 
@@ -155,7 +50,7 @@ html(lang="en")
 
 		.game
 			br
-			h1(style='left: 25%;') achievements
+			h1(style='left: 25%;') Achievements
 			h3 game history
 			label(style='left: 25%;') Win percentage: !{session.achievements[0]}%
 			br
@@ -192,6 +87,7 @@ html(lang="en")
 				img(src='/badge.png' alt='profile pic' style='width: 85px; margin-top: -12; margin-left: -189;margin-right: 60%;border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 		
 		.profile(style='width:21%; display: inline-block;')
+			button.button(onclick="location.href = '../chatroom';") messages
 			img(src='/'+session.profilePic alt='profile pic' style='width: 150px; border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 			h1 @!{session.username}
 			if (session.online == true)
@@ -200,7 +96,7 @@ html(lang="en")
 				h3(style='margin-top:-5%') offline&nbsp!{session.status}
 			br
 			details.requestHide(style='background-color: #9a86d7; border-radius: 1rem 1rem 1rem 1rem; cursor:pointer; box-shadow: -2px 4px 9px -1px rgba(55,55,166,0.4);')
-				summary#sum Requests
+				summary#sum Requests 
 				ul#requestList(onkeyup="searchReq()")
 			br
 			if (session.friends[0] == null)
