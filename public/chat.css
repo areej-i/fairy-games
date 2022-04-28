@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "OpenSansCondensed-Light", sans-serif;
+    color: white;
+    word-spacing: 0.2em;
+    letter-spacing: 0.05em;
+    background: linear-gradient(rgb(180, 115, 201), rgb(242, 157, 114));
+}
+h2{
+    text-align:center;
+    margin-top: 2%;
+}
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #9484cb;
+    width: 30%;
+    height: 730px;
+    margin-top: 2%;
+    margin-left:2%;
+}
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+.tab label {
+    display: block;
+    background-color: inherit;
+    color: white;
+    font-weight: 600;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #8876c7
+}
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #7f6ec1;
+}
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 65%;
+    border-left: none;
+    height: 730px;
+    margin-top: 2%;
+    background: rgb(99 108 197 / 68%);
+    overflow: scroll;
+    margin-bottom:4.4%;
+}
+form {
+    position: fixed;
+    bottom: 3px;
+    width: 60%;
+    overflow:auto;
+}
+form input {
+    padding: 10px 10px 10px 17px;
+    width: 70%;
+    font-size:17px;
+    margin-bottom: 11%;
+    margin-left: 8%;
+    color:#2f3167;
+    border-radius:1rem;
+    background-color:#b199de;
+    border: none;
+    box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4);
+}
+form button {
+    width: 9%;
+    font-size:17px;
+    background: #b674c7;
+    color: white;
+    border: none;
+    margin-left: 2%;
+    border-radius:0.5rem;
+    cursor:pointer;
+    box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4);
+    padding: 10px;
+}
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.box {
+    height:80%;
+    overflow:scroll;
+}
+#messages div {
+    padding: 5px 10px;
+}
