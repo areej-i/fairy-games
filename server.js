@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
+// app.listen(3000, function(){
+//     console.log('Example app listening on port 3000!')
+// });
 const fs = require('fs');
 const users = require('./users.json');
-const model = require('./businessLogic.js')
+const model = require('./businessLogic.js');
 const path = require('path');
-// const io = require('socket.io')(server)
+
+var server = require('http').Server(app);
+// var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 const pug = require('pug');
 
 app.use(express.json());
@@ -23,9 +29,16 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// io.on('connection', socket => {
-//     console.log('Some client connected')
-// })
+io.on('connection', (socket) => {
+
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+    socket.on('chatmessage', msg => {
+        io.emit('message', msg)
+    })
+});
 
 app.use("/", function(req, _res, next)
 {
@@ -49,6 +62,12 @@ app.get('/games',(_req,res)=>{
 app.get('/instructions',(_req,res)=>{
     res.render('instructions');
 })
+app.get('/chat',(_req,res)=>{
+    res.render('chat');
+})
+app.get('/chatroom',(_req,res)=>{
+    res.render('chatroom');
+})
 
 
 /**********************  Handling register  **********************/
@@ -65,7 +84,7 @@ function signUpUser(req, res)
     }
     else
     {
-        if(model.createUser(req.body.username,req.body.password,req.body.repeatPass,req.body.email))
+        if(model.createUser(req.body.username,req.body.password,req.body.email))
         {
             req.session.username = req.body.username;
             req.session.loggedin = true;
@@ -115,6 +134,7 @@ function loginUser (req, res)
             req.session.friends = users[req.body.username].friends;
             req.session.requests = users[req.body.username].requests;
             req.session.profilePic = users[req.body.username].profilePic;
+            req.session.badges = users[req.body.username].badges;
             res.status(200).redirect('/users/' + req.body.username);
         }
         else
@@ -164,6 +184,8 @@ function getProfile (req, res)
             req.params.gamesHistory = users[req.params.username].gamesHistory;
             req.params.friends = users[req.params.username].friends;
             req.params.requests = users[req.params.username].requests;
+            req.params.profilePic = users[req.params.username].profilePic;
+            req.params.badges = users[req.params.username].badges;
             res.status(200).render('otherProfile',{request: req.params});
         }
     }
@@ -171,11 +193,47 @@ function getProfile (req, res)
         res.status(404).send("Profile unavailable");
 }
 
+/***************************************************** */
+
+app.get("/users/:username/chatroom", getChatroom);
+function getChatroom (req, res)
+{
+    console.log("Getting chatroom with name: " + req.params.username);
+
+    if(model.doesUserExist(req.params.username) && req.session.loggedin)
+    {
+        if(req.session.username == req.params.username)
+        {
+            res.status(200).render('profile',{session: req.session});  
+        }  
+        else if(users[req.params.username].status == 'public')
+        {
+            reqUser = req.params.username;
+            req.params.status = users[req.params.username].status;
+            req.params.online = users[req.params.username].online;
+            req.params.achievements = users[req.params.username].achievements;
+            req.params.gamesHistory = users[req.params.username].gamesHistory;
+            req.params.friends = users[req.params.username].friends;
+            req.params.requests = users[req.params.username].requests;
+            req.params.profilePic = users[req.params.username].profilePic;
+            req.params.badges = users[req.params.username].badges;
+            res.status(200).render('otherProfile',{request: req.params});
+        }
+    }
+    else
+        res.status(404).send("Chatroom unavailable");
+}
+
 /************************  display info  ***************************/
 app.get('/displayUsers', displayUsers);
 function displayUsers(_req,res)
 {
     res.send(JSON.stringify(users))
+}
+app.get('/getUsersinConvo', getUsersinConvo);
+function getUsersinConvo(req,res)
+{
+    res.send(JSON.stringify(req.session.username));
 }
 app.get('/otherInfo', otherInfo);
 function otherInfo(_req,res)
@@ -268,7 +326,7 @@ app.get('/changeStatus', function(req, res)
 
 app.get('searchGames')
 /*************************************************************** */
-var server = app.listen(3000);
+server.listen(3000);
 // HTTP Keep-Alive to a short time to allow graceful shutdown
 server.on('connection', function (socket) {
     socket.setTimeout(4 * 1000);
