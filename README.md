@@ -10,5 +10,5 @@ In the terminal, open the project folder and type npm install to update node. Ne
 You must sign up with an account to use the site features.
 
 Some site images:
-![image](https://user-images.githubusercontent.com/58537880/165667701-d80ae355-90b9-4064-a256-417fbb99496b.png)
+![Screen Shot 2022-04-27 at 11 00 34 PM](https://user-images.githubusercontent.com/58537880/165667996-82195515-17ab-47b3-b7bc-e9e17d26fb7f.png)
 ![Screen Shot 2022-04-27 at 10 59 15 PM](https://user-images.githubusercontent.com/58537880/165667841-01d29568-bfc4-43b2-a1bd-9c8baee637d7.png)
