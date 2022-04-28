@@ -36,15 +36,16 @@ function getUser(nameKey)
   }
 }
 /********************************************************************************
-Parameter is object with username, password, repeated password, email
+Parameter is object with username, password, email
 *********************************************************************************/
 
-function createUser(user,password,repeatPass,email)
+function createUser(user,password,email)
 {
+  user.toLowerCase();
+  password.toLowerCase();
+  email.toLowerCase();
+
   if(isUserTaken(user) || !password){
-    return false;
-  }
-  if(password==user ||repeatPass != password){
     return false;
   }
   if(password=="password" ||user=="username"){
@@ -61,7 +62,8 @@ function createUser(user,password,repeatPass,email)
   }
 
   var obj = {};
-  var j = {username:user,password:password,email:email,achievements:[0,0],gameHistory:[],friends:[],status:"public",requests:[],online:false,profilePic:'profilepic.jpg'};
+  var j = {username:user,password:password,email:email,achievements:[0,0],gameHistory:[],friends:[],status:"public",requests:[],
+  online:false,profilePic:'profilepic.jpg',badges:[]};
   obj[user] = j;
   var t = Object.assign(users,obj);
   fs.writeFile('users.json',JSON.stringify(t),(err) => {
@@ -162,6 +164,8 @@ Parameter is object with username, password
 ************************************/
 function login(username, password)
 {
+  username.toLowerCase();
+  password.toLowerCase();
   return (users.hasOwnProperty(username) && users[username].password == password);
 }
 /***********************************
@@ -230,37 +234,6 @@ function deleteRequest(u,other)
   fs.writeFile('users.json',JSON.stringify(users),(err) => {
   if (err) throw err});
 }
-
-// function sendRequest(user,other)
-// {
-// 	let c = 0
-// 	var button = document.getElementById("button");
-// 	for (let g = 0; g < users[other].requests.length;g++)
-// 	{
-// 		if(users[other].requests[g] == user)
-// 		{
-// 			c++;
-// 		}
-// 	}
-// 	if(c == 0)
-// 	{
-// 		users[other].requests.push(user);
-// 		fs.writeFile('users.json',JSON.stringify(users),(err) => {
-// 			if (err) throw err});
-//     }
-//     else
-//     {
-//         button.setAttribute("style","pointer-events:none");
-// 	}
-// 	// 	button.setAttribute("style","display:show");
-// }
-
-
-
-
-
-
-
 
 
 module.exports = {
