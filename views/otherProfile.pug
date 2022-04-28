@@ -19,50 +19,45 @@ html(lang="en")
 		}
 	.game
 		br
-		h1(style='left: 25%;') achievements
+		h1(style='left: 25%;') Achievements
 		h3 game history
-		label Win percentage: !{request.achievements[0]}%
+		label(style='left: 25%;') Win percentage: !{request.achievements[0]}%
 		br
-		label Total Games played: !{request.achievements[1]}
+		label(style='left: 25%;') Total Games played: !{request.achievements[1]}
 		br 
 		br
 		table(style='text-align: center')
-			tr
-				th opponent:
-				th &nbsp
+			tr(style='vertical-align: middle; left: 24%;')
+				th(style='width:219px') opponent:
 				th result:
 			tr
 				td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+request.gamesHistory[0][0]+"'") !{request.gamesHistory[0][0]}
-				td &nbsp
 				td !{request.gamesHistory[1][0]}
 			tr
 				td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+request.gamesHistory[0][1]+"'") !{request.gamesHistory[0][1]}
-				td &nbsp
 				td !{request.gamesHistory[1][1]}
 			tr
 				td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+request.gamesHistory[0][2]+"'") !{request.gamesHistory[0][2]}
-				td &nbsp
 				td !{request.gamesHistory[1][2]}
 			tr
 				td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+request.gamesHistory[0][3]+"'") !{request.gamesHistory[0][3]}
-				td &nbsp
 				td !{request.gamesHistory[1][3]}
 			tr
 				td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+request.gamesHistory[0][4]+"'") !{request.gamesHistory[0][4]}
-				td &nbsp
 				td !{request.gamesHistory[1][4]}
 		style.
 			table 
 			{
 				width: 100%;
 			}
+		br
 		h3(style='margin-top: 59') badges
-		.badges(style='margin-left: 4%;margin-right: 4%;box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); border-radius: 1rem; background-color: rgb(200 186 255 / 71%); padding: 19px 125px 94px 125px')
-			img(src='/badge.png' alt='profile pic' style='width: 90px;margin-left: -189;margin-right: 60%;border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
+		.badges(style='margin-left: 6%;margin-right: 6%;box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); border-radius: 1rem; background-color: rgb(200 186 255 / 71%); padding: 19px 110px 100px 120px')
+			img(src='/badge.png' alt='profile pic' style='width: 85px; margin-top: -12; margin-left: -189;margin-right: 60%;border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 
 	.profile
 		form(action="../getRequests/"+request.username)
-			button#button(style="font-size:12px; cursor:pointer" class="button") request follow
+			button#button(style="font-size:15px; cursor:pointer" class="button") request follow
 		img(src='/'+request.profilePic alt='profile pic' style='width: 150px; border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 		h1 @!{request.username}
 		if (request.online == true)
@@ -75,6 +70,4 @@ html(lang="en")
 		else
 			input#fInput(type='text' onkeyup="searchFriends()" style='border-radius: 1rem 1rem 0rem 0rem; cursor:pointer' placeholder='Search friends..')
 		ul#friendList(style="width: 302px")
-		br
-		br
-		button(class='button' type="button" onclick="location.href='../users'" style="font-size:12px; cursor:pointer;") back to profile
+		button(class='button' type="button" onclick="location.href='../users'" style="font-size:15px; margin-top: 23%; cursor:pointer;") back to profile
