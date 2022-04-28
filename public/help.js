@@ -1,6 +1,40 @@
-// var fs = require('fs');
-// const { callbackify } = require('util');
-// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const socket = io('http://localhost:3000');
+const messages = document.getElementById('messages');
+const msgForm = document.getElementById('msgForm');
+
+socket.on('message', data => {
+    console.log(data);
+    appendMessages(data);
+})
+
+msgForm.addEventListener('submit', e => {
+    e.preventDefault();
+    socket.emit('chatmessage', msgForm.msg.value);
+    console.log('submit from msgfrom', msgForm.msg.value);
+    msgForm.msg.value = '';
+})
+
+let usern = "";
+function displayConvoUser(){
+	let req = new XMLHttpRequest();
+	req.onreadystatechange = function()
+	{
+		usern = JSON.parse(this.responseText);
+		console.log(usern);
+		if (this.readyState == 4 && this.status== 200){
+			console.log(this.responseText);
+		}
+	}
+	req.open("GET",`/getUsersinConvo`,true);
+	req.send();
+}
+console.log("yo"+usern);
+function appendMessages(message) {
+	displayConvoUser();
+    const html = `<div>`+usern+`: ${message}</div>`;
+    messages.innerHTML += html;
+}
+
 function displayActiveGames()
 {
 	let req = new XMLHttpRequest();
@@ -94,8 +128,6 @@ function displayFriends()
 				li.appendChild(button1);
 				a.appendChild(document.createTextNode(friends[v]));
 				ul.appendChild(li);
-
-
 			}
 		}
 	}
@@ -118,7 +150,9 @@ function displayRequests()
 				var ul = document.getElementById("requestList");
 				var sum = document.getElementById("sum");
 				sum.setAttribute('style','border-radius: 1rem 1rem 0rem 0rem');
+				ul.setAttribute('style','box-shadow: none');
 				var li = document.createElement("li");
+				li.setAttribute('style','background-color: transparent');
 				var a = document.createElement("a");
 
 				var button1 = document.createElement("button");
@@ -131,7 +165,7 @@ function displayRequests()
 				
 				var button2 = document.createElement("button");
 				button2.setAttribute('id',"add");
-				var str2 = "location.href = '../addRequest"+friends[v]+"'";
+				var str2 = "location.href = '../addRequest/"+friends[v]+"'";
 				button2.setAttribute("onclick",str2)
 				button2.innerHTML = " <img src = \"/checkmark.png\" style= \"width:16px\"alt = \"check\">";
 				button2.setAttribute("style","cursor:pointer")
@@ -259,7 +293,7 @@ function searchFriends()
 	ul = document.getElementById("friendList");
 	li = ul.getElementsByTagName("li");
 	for (i = 0; i < li.length; i++) 
-	{
+	{	
 		a = li[i].getElementsByTagName("a")[0];
 		txtValue = a.textContent || a.innerText;
 		if (txtValue.toUpperCase().indexOf(filter) > -1) 
@@ -272,28 +306,3 @@ function searchFriends()
 		}
 	}
 }
-
-// function displayGames(){
-
-// }
-// function searchGames()
-// {
-// 	var input, filter, ul, li, a, i, txtValue;
-// 	input = document.getElementById("fInput");
-// 	filter = input.value.toUpperCase();
-// 	ul = document.getElementById("friendList");
-// 	li = ul.getElementsByTagName("li");
-// 	for (i = 0; i < li.length; i++) 
-// 	{
-// 		a = li[i].getElementsByTagName("a")[0];
-// 		txtValue = a.textContent || a.innerText;
-// 		if (txtValue.toUpperCase().indexOf(filter) > -1) 
-// 		{
-// 			li[i].style.display = "";
-// 		}
-// 		else
-// 		{
-// 			li[i].style.display = "none";
-// 		}
-// 	}
-// }
