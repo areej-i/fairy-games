@@ -2,7 +2,7 @@ html(lang="en")
 	head
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA Compatible" content="IE=edge")
-		title Fairy Gaming 
+		title Fairy Games
 		script(src="/connect4.js")
 		script(src="/help.js")
 		link(rel="icon" type="image/png" href="/pixie4.png")
@@ -57,37 +57,12 @@ html(lang="en")
 			label(style='left: 25%;') Total Games played: !{session.achievements[1]}
 			br 
 			br
-			table(style='text-align: center')
-				tr(style='vertical-align: middle; left: 24%;')
-					th(style='width:219px') opponent: 
-					th result:
-				tr
-					td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+session.gamesHistory[0][0]+"'") !{session.gamesHistory[0][0]}
-					td !{session.gamesHistory[1][0]} 
-				tr
-					td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+session.gamesHistory[0][1]+"'") !{session.gamesHistory[0][1]}
-					td !{session.gamesHistory[1][1]}
-				tr
-					td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+session.gamesHistory[0][2]+"'") !{session.gamesHistory[0][2]}
-					td !{session.gamesHistory[1][2]}
-				tr
-					td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+session.gamesHistory[0][3]+"'") !{session.gamesHistory[0][3]}
-					td !{session.gamesHistory[1][3]}
-				tr
-					td(style="cursor:pointer; text-decoration: underline;" onclick="location.href='../users/"+session.gamesHistory[0][4]+"'") !{session.gamesHistory[0][4]}
-					td !{session.gamesHistory[1][4]}
-			style.
-				table 
-				{
-					width: 100%;
-				}
 			br
 			h3(style='margin-top: 59') badges
 			.badges(style='margin-left: 6%;margin-right: 6%;box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); border-radius: 1rem; background-color: rgb(200 186 255 / 71%); padding: 19px 110px 100px 120px')
 				img(src='/badge.png' alt='profile pic' style='width: 85px; margin-top: -12; margin-left: -189;margin-right: 60%;border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 		
 		.profile(style='width:21%; display: inline-block;')
-			button.button(onclick="location.href = '../chatroom';") messages
 			img(src='/'+session.profilePic alt='profile pic' style='width: 150px; border-radius: 50%; -webkit-box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
 			h1 @!{session.username}
 			if (session.online == true)
@@ -105,14 +80,13 @@ html(lang="en")
 				input#fInput(type='text' onkeyup="searchFriends()" style='border-radius: 1rem 1rem 0rem 0rem;' placeholder='Search friends..')
 			ul#friendList(style="width: 302px")
 
-		.games(style='width:20%; top: 30%; right:21%; display: inline-block; position: absolute')
-			h2(style='margin-left:100%; margin-bottom:10%') Games
-			label#lab(style='margin-left:61%; font-weight: bold; font-size: 25px; box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); cursor:pointer; border-radius: 1rem; background-color: rgb(149 145 234 / 68%); padding: 21px 122px 21px 122px' onclick="location.href = '../games';") Connect4
+		.games(style='width: 33%; height: 50%;top: 30%; right: 1%; display: inline-block; position: absolute')
+			h2(style='margin-left:45%; margin-bottom:10%') Games
+			label#lab(onclick="location.href = '../game';") Connect4
+				
 			.flip-card
 				.flip-card-inner
 					.flip-card-front
 						label(style='font-size: 25px;font-weight: bold; position: absolute; right: 130; margin-top: 18;') Mancala
 					.flip-card-back
 						label(style='font-size: 23px; font-weight: bold; position: absolute; right: 100; margin-top: 18') Coming soon!
-			//- label(style='margin-right:61%; font-size: 25px; box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4); cursor:pointer; border-radius: 1rem; background-color: rgb(149 145 234 / 68%); padding: 21px 125px 21px 125px' onclick="location.href = '../games';") Mancala
-			//- img(src='/connect4.png' alt='profile pic' style='width: 70px; border-radius: 50%; box-shadow: -2px 3px 9px -2px rgba(55,55,166,0.4)')
