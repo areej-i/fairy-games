@@ -91,22 +91,6 @@ function searchUsers(searchTerm)
       		return publicUsers[b];
     	}
   	}
-  // let results = [];
-
-  // if(!isValidUser(requestingUser)){
-  //   return results;
-  // }
-
-  // for(let username in users){
-  //   let user = users[username];
-  //   if(user.username.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0)
-  //   {
-  //     if(user.username === requestingUser.username || requestingUser.friends.includes(user.username)){
-  //       results.push(user);
-  //     }
-  //   }
-  // }
-  // return results;
 }
 /*******************************************
 input: string
