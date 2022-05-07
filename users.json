@@ -1,1 +1,143 @@
-{"noname":{"username":"noname","password":"1234","email":"noname@gmail.com","achievements":[25,5],"gamesHistory":[["randomguy","r0ckstar","r0ckstar","r0ckstar","r0ckstar"],["win","loss","loss","loss","loss"],["public","public","public","public","public"]],"friends":["randomguy","coolgirl66"],"status":"public","requests":["chillylion"],"online":false,"activeGames":[["12345","chillylion","public"],["02345","randomguy","private"]],"profilePic":"profilepic.jpg"},"coolgirl66":{"username":"coolgirl66","password":"1234","email":"cool_girl@hotmail.com","achievements":[11,21],"gamesHistory":[["chillylion","chillylion","chillylion","chillylion","chillylion"],["loss","loss","win","win","win"],["public","public","public","public","public"]],"friends":["randomguy","chillylion","noname"],"status":"private","requests":[],"online":false,"activeGames":[[]],"profilePic":"profilepic.jpg"},"chillylion":{"username":"chillylion","password":"1234","email":"misterlion@hotmail.com","achievements":[30,15],"gamesHistory":[["coolgirl66","coolgirl66","coolgirl66","coolgirl66","coolgirl66"],["win","win","loss","loss","loss"],["public","public","public","public","public"]],"friends":[],"status":"public","requests":["noname"],"online":false,"activeGames":[["12345","noname","public"]],"profilePic":"profilepic.jpg"},"randomguy":{"username":"randomguy","password":"1234","email":"random@gmail.com","achievements":[10,20],"gamesHistory":[["coolgirl66","coolgirl66","coolgirl66","r0ckstar","noname"],["loss","loss","loss","loss","loss"],["public","public","public","public","public"]],"friends":["coolgirl66","noname"],"status":"public","requests":["noname"],"online":false,"activeGames":[["01234","rockstar","private"],["02345","noname","private"]],"profilePic":"profilepic.jpg"},"r0ckstar":{"username":"r0ckstar","password":"1234","email":"rockstar776@gmail.com","achievements":[40,18],"gamesHistory":[["randomguy","noname","randomguy","randomguy","randomguy"],["win","win","win","win","lose"],["public","public","public","public","public"]],"friends":[],"status":"public","requests":[],"online":true,"activeGames":[["01234","randomguy","private"]],"profilePic":"profilepic.jpg"}}
+{
+    "areej": {
+        "username": "areej",
+        "password": "1234",
+        "email": "areej@gmail.com",
+        "achievements": [
+            50,
+            2
+        ],
+        "gamesHistory": [
+            6,
+            7
+        ],
+        "friends": [
+            "randomguy",
+            "chillylion"
+        ],
+        "status": "public",
+        "requests": [
+            "coolgirl66"
+        ],
+        "online": true,
+        "activeGames": [
+            1,
+            5
+        ],
+        "profilePic": "profilepic2.jpg",
+        "badges": [
+            "badge1.png",
+            "badge2.png"
+        ]
+    },
+    "coolgirl66": {
+        "username": "coolgirl66",
+        "password": "1234",
+        "email": "cool_girl@hotmail.com",
+        "achievements": [
+            100,
+            1
+        ],
+        "gamesHistory": [
+            8
+        ],
+        "friends": [
+            "randomguy",
+            "chillylion",
+            "areej"
+        ],
+        "status": "private",
+        "requests": [],
+        "online": true,
+        "activeGames": [
+            1,
+            3
+        ],
+        "profilePic": "profilepic.jpg",
+        "badges": [
+            "badge1.png",
+            "badge2.png"
+        ]
+    },
+    "chillylion": {
+        "username": "chillylion",
+        "password": "1234",
+        "email": "misterlion@hotmail.com",
+        "achievements": [
+            0,
+            0
+        ],
+        "gamesHistory": [],
+        "friends": [
+            "areej"
+        ],
+        "status": "public",
+        "requests": [
+            "areej"
+        ],
+        "online": false,
+        "activeGames": [
+            2,
+            4
+        ],
+        "profilePic": "profilepic.jpg",
+        "badges": [
+            "badge2.png"
+        ]
+    },
+    "randomguy": {
+        "username": "randomguy",
+        "password": "1234",
+        "email": "random@gmail.com",
+        "achievements": [
+            0,
+            1
+        ],
+        "gamesHistory": [
+            8
+        ],
+        "friends": [
+            "coolgirl66",
+            "areej"
+        ],
+        "status": "public",
+        "requests": [
+            "areej"
+        ],
+        "online": false,
+        "activeGames": [
+            2
+        ],
+        "profilePic": "profilepic.jpg",
+        "badges": [
+            "badge2.png"
+        ]
+    },
+    "r0ckstar": {
+        "username": "r0ckstar",
+        "password": "1234",
+        "email": "rockstar776@gmail.com",
+        "achievements": [
+            50,
+            2
+        ],
+        "gamesHistory": [
+            6,
+            7
+        ],
+        "friends": [],
+        "status": "public",
+        "requests": [],
+        "online": true,
+        "activeGames": [
+            3,
+            4,
+            5
+        ],
+        "profilePic": "profilepic.jpg",
+        "badges": [
+            "badge1.png",
+            "badge2.png"
+        ]
+    }
+}
