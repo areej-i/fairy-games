@@ -1,0 +1,35 @@
+style.
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font: 13px Helvetica, Arial; }
+    form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+    form input { border: 0; padding: 10px; width: 90%; margin-right: 0.5%; }
+    form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+    #messages { list-style-type: none; margin: 0; font-size: 15px; padding: 0; height:450px; overflow:auto; background-color: #7065b2;}
+    #messages li { padding: 5px 10px; }
+    #m {height: 32px;
+    border-radius: 1rem;
+    box-shadow: -2px 3px 9px -2px rgb(19 0 36 / 19%);
+    border: none;
+    padding: 10px 10px 10px 17px;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 50%;
+    }
+
+ul#messages(style="border-radius: 0.5rem;")
+input#m(autocomplete='off')
+a(href="javascript:sendMessage()" class="btn btn-outline-secondary" style="margin-left:10px;") Send
+script(src='/socket.io/socket.io.js')
+script.
+  var socket = io();
+  function sendMessage(){
+    socket.emit('chat message', document.getElementById("m").value);
+    document.getElementById("m").value = ""
+  }
+  socket.on('chat message', function(msg){
+    let add = document.createElement("li")
+    let chat = document.getElementById("messages")
+    add.innerHTML = msg;
+    chat.append(add);
+    chat.scrollIntoView()
+  });
