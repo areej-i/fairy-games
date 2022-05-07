@@ -1,0 +1,23 @@
+head
+    script(src="/rewatch.js")
+    script.
+        gameBoard = #{display}
+    title Fairy Games
+    link(rel="icon" type="image/png" href="/pixie4.png")
+body
+    div(class="d-flex flex-wrap h-100")
+        div#game-container(class="h-100 px-5" style="max-width:600px;")
+            div(class="btn-group w-100 justify-content-between")
+                if index > 0
+                    a(id="prev" class="button flex-fill text-center btn btn-warning" style="margin-right:5px;" href=id+"?index="+prev) prev
+                if index < length-1
+                    a(id="next" class="button flex-fill text-center btn btn-warning" href=id+"?index="+next) next
+            canvas#gameCanvas(class="w-100 h-75")
+        div#side-container(class="flex-row")
+            h3 Rewatching game:
+            h3 Game ID:
+            h4#gameid #{id}
+            h4 winner:#{winner}
+            h4 players:#{players}
+            h4 all game#{moves}
+            h4 length#{length}

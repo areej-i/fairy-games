@@ -1,0 +1,39 @@
+doctype html
+html(lang="en" style="background: linear-gradient(rgb(180, 115, 201), rgb(242, 157, 114))")
+    head
+        link(rel='stylesheet' type="text/css" href='/bootstrap.min.css')
+        script(src="/rewatch.js")
+        script(src="/game.js")
+        script. 
+            gameBoard = #{gameBoard}
+        title Fairy Games 
+        link(rel="icon" type="image/png" href="/pixie4.png")
+    body(style="padding-top: 45px;padding-left: 15px;padding-right: 35px; padding-bottom: 95px;")
+        div#alert(class=`sticky-top`)  
+        div#game-container(class="h-100 px-5" style="max-width:700px; float: left;")
+            if !spectate
+                div(class="btn-group w-100 justify-content-between")
+                    each col in [1,2,3,4,5,6,7,8]
+                        a(class="flex-fill text-center btn btn-warning" style="margin-left:5px; margin-right:5px;" href="javascript:playMove(\""+id +"\",\""+ turn +"\",\""+ col +"\")") &darr;
+            canvas#gameCanvas(class="w-100 h-75" style="background-color: #4e4a89; border-radius:15px")
+            
+        div.card(style="margin-right: 15px; height: 680px")
+            div.card-header
+                div(style="display:flex;justify-content: center;")
+                    h5 Game #
+                    h5#gameid #{id}
+            div.card-body
+                div(style="display:flex;justify-content: start;")
+                    h6.card-title Players:
+                    h6.card-text(style="margin-left:10px") #{players[0]} (purple) vs. #{players[1]} (orange)
+                div(style="display:flex;justify-content: start;")
+                    h6.card-title Turn:
+                    if turn==1
+                        h6#turn(style="margin-left:10px") #{players[0]}  
+                    else
+                        h6#turn(style="margin-left:10px") #{players[1]}
+                div(style="display:flex;justify-content: start;")
+                    h6.card-title Game privacy:
+                    h6.card-text(style="margin-left:10px") #{privacy}
+                h6 Chat:
+                include ./components/chat.pug   
