@@ -1,46 +1,44 @@
 doctype html
-html(lang="en")
+html(lang="en" style="background: linear-gradient(180deg, rgba(141,69,190,0.4640231092436975) 4%, rgba(240,96,96,0.7021183473389356) 94%); height: 100%")
 	head
 		meta(charset="utf-8")
-		title Fairy Gaming 
-		link(rel="stylesheet" href="./connect4.css")
-		script(src="/connect4.js")
+		title Fairy Games
 		script(src="/help.js")
+		link(rel='stylesheet' href="./game.css")
 		link(rel="icon" type="image/png" href="/pixie4.png")
-	body(style="background: rgb(206, 184, 250);" onload="displayGames()")
-	style.
-		.button
-		{
-			color:black;
-		}
-		body
-		{
-			font-size: 20px;
-			background: #90c0d6;
-		}
-	form(action='/games' method="POST")
-		body(onload="displayGames()")
-			h1 Connect4
-			label
-			form(action='../createGame')
-				p type:
-				input#private(type='radio' value='private')
-				label(for='private') private
-				br
-				input#public(type='radio' value='public')
-				label(for='public') public
-				br
-				input#friends(type='radio' value='other')
-				label(for='other') friends only
-				br
-				br
-				input(type='submit' class="button" value='create new game')
-			br
-			label search games
-				input#gamesInput(type='text' onkeyup="searchGames()" placeholder='Search games..')
-				ul#gamesList(style="width: 300px;")
+	body(onload="displayGameUsers()")
 
-
-
-    
-
+		h1(style="margin-top:2%;") Connect4
+		.createNewGame
+			form(action='/createGame', method='post')
+				h2 Create new game
+				br
+				label(style="margin-right: 20px; margin-top:3%;") Choose user:
+				input#opponent(name='opponent' list="userList")
+				datalist#userList(name='userList')
+				br
+				label(style="margin-right: 20px; margin-top:3%;") Game privacy:
+				input#private(name='privacy' type='radio' value='private')
+				label(for='private' style="margin-left: 6px;") private
+				br
+				input#public(name='privacy' type='radio' value='public')
+				label(for='public' style="margin-left: 6px;") public
+				br
+				button#createGame(class="button" type='submit' style='margin-top:16%') Create game
+		.activeGames
+			h2 Active games
+			if (activeGames.length == 0)
+				h4#activeID  no active games
+			else
+				h4#activeID
+					ul
+					each g in activeGames
+						div.card(style="margin-top:10px;max-width:480px;margin-left: 8%;")
+							h5.card-title
+							li
+								= "game #" + g 
+								br
+								a(class="btn btn-secondary" href="../forfeit/"+g) forfeit
+								a(class='btn btn-info' style="margin-top:7px;margin-right:5px;" href='../connect4/' + g) play
+		button(class="button" style='margin-left: 8%;' onclick="location.href='../users'") back to profile
+		button(class='button' type="button" style="margin-left: 3%; margin-top: 40%" onclick="location.href = 'instructions';") How to play
