@@ -1,12 +1,13 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 const fs = require('fs');
 const users = require('./users.json');
 const connect4Data = require('./games.json');
 const model = require('./businessLogic.js');
 const path = require('path');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 
 app.use(express.json());
 app.set('views',path.join(__dirname,'views'));
@@ -14,14 +15,13 @@ app.set('public',path.join(__dirname,'public'));
 app.set('view engine','pug');
 app.use(express.urlencoded({extended:true}));
 
-//Create session
-const session = require('express-session');
-app.use(session({ 
-    cookie:{ maxAge: 1000000000000},
-    secret: 'hello cat',
-    resave: true,
-    saveUninitialized: true
-}));
+// //Create session
+// app.use(session({ 
+//     cookie:{ maxAge: 1000000000000},
+//     secret: 'hello cat',
+//     resave: true,
+//     saveUninitialized: true
+// }));
 
 //set up socket
 const sessionMiddleware = session({secret: 'hellocat', resave: false, saveUninitialized: true});
