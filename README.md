@@ -1,7 +1,11 @@
 # fairy-games
-Gaming social media app where users can create accounts and play Connect4 amongst other users connected on the server. They may also add(and remove) users as friends as well as message users. Users that play and win more games can earn badges to display on their profile.
 
-This project uses Javascript, CSS, and PUG (aka pug.js, a template engine for HTML) To run: Must have node.js installed, you can download it at https://nodejs.org/en/download/
+Fairy Games is an interactive social network website where users can create an account to play Connect4 amongst other users on the site. Navigate their profiles, befriend or unfriend users, and also view their gaming history. Set private and public games where other users are able to observe your game or play privately. When playing the game, users are also able to chat live with the other users. Users that play and win more games can earn badges to display on their profile.
+
+This project uses Javascript, CSS, and PUG (aka pug.js, a template engine for HTML) and stores data using JSON. Socket.io is used to implement the live messaging.
+
+
+To run: Must have node.js installed, you can download it at https://nodejs.org/en/download/
 
 In the terminal, open the project folder and type npm install to update node. Next type npm install socket.io. Finally type node server.js to run the server to your localhost:3000. Ensure port 3000 is not already in use. 
 
