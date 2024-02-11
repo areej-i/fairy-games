@@ -1,11 +1,33 @@
 # fairy-games
 
-Fairy Games is an interactive social network website where users can create an account to play Connect4 amongst other users on the site. Navigate their profiles, befriend or unfriend users, and also view their gaming history. Set private and public games where other users are able to observe your game or play privately. When playing the game, users are also able to chat live with the other users. Users that play and win more games can earn badges to display on their profile. When a game is over, you are also able to watch a step by step playback of the game on your profile. Currently only the game Connect4 is available to play but others may be added in the future.
+Fairy Games is an immersive site where you can step into the enchanting world of Connect4 and connect with other players on the site. Dive into the magical realm of strategic gameplay, real-time messaging, and community interaction.
 
-This project uses Javascript, CSS, and PUG (aka pug.js, a template engine for HTML) and stores data using JSON. Socket.io is used to implement the live messaging.
+ ‍ ‍
+ 
+🌟 Features:
 
+Connect4 Battles: Engage in Connect4 matches with friends or random opponents in public or private games.
 
-To run: Must have node.js installed, you can download it at https://nodejs.org/en/download/
+Live Game Spectating: In public games, users are able to join ongoing matches by spectating games in real-time.
+
+Friendship System: Users can build connections and expand their gaming circle by adding and removing users as friends and navigating their profiles. 
+
+Live Chat: Players are able to communicate with opponents and spectators live during gameplay. 
+
+Game Playback: Users are able to replay victories and analyze your gameplay with a detailed play-by-play feature accessed on their profile. 
+
+Badge Rewards: Users can also showcase their achievements through earning badges displayed on their profile.
+
+ ‍ ‍
+ 
+🚀 Technologies Used:
+
+Fairy Games is powered by a combination of JavaScript, Node.js, PUG (aka pug.js, a template engine for HTML), and CSS, with real-time messaging facilitated by Socket.io. Data is stored using JSON. 
+
+ ‍ ‍
+ 
+👩🏽‍💻 To run: 
+Must have node.js installed, you can download it at https://nodejs.org/en/download/
 
 In the terminal, open the project folder and type npm install to update node. Next type npm install socket.io. Finally type node server.js to run the server to your localhost:3000. Ensure port 3000 is not already in use. 
 
