@@ -1,6 +1,6 @@
 # fairy-games
 
-Fairy Games is an interactive social network website where users can create an account to play Connect4 amongst other users on the site. Navigate their profiles, befriend or unfriend users, and also view their gaming history. Set private and public games where other users are able to observe your game or play privately. When playing the game, users are also able to chat live with the other users. Users that play and win more games can earn badges to display on their profile. Currently only the game Connect4 is available to play but others may be added in the future.
+Fairy Games is an interactive social network website where users can create an account to play Connect4 amongst other users on the site. Navigate their profiles, befriend or unfriend users, and also view their gaming history. Set private and public games where other users are able to observe your game or play privately. When playing the game, users are also able to chat live with the other users. Users that play and win more games can earn badges to display on their profile. When a game is over, you are also able to watch a step by step playback of the game on your profile. Currently only the game Connect4 is available to play but others may be added in the future.
 
 This project uses Javascript, CSS, and PUG (aka pug.js, a template engine for HTML) and stores data using JSON. Socket.io is used to implement the live messaging.
 
